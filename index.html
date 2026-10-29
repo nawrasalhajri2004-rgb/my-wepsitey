@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حكاياتي الجميلة | القراءة للصف الأول</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="brand"><span class="brand-icon">📚</span><div><h1>حكاياتي الجميلة</h1><p>أقرأ، أفهم، وأتعلّم</p></div></div><button id="teacherOpen" class="teacher-link">لوحة المعلم</button></header>
+<main>
+<section id="loginScreen" class="login-wrap">
+  <div class="hero"><div class="hero-copy"><span class="eyebrow">مغامرة القراءة تبدأ هنا</span><h2>كل قصة تفتح لنا<br><em>بابًا جديدًا للخيال</em></h2><p>اقرأ قصة قصيرة، أجب عن الأسئلة، واجمع النجوم مع كل محاولة.</p><div class="hero-badges"><span>🌟 قصص ممتعة</span><span>🧩 أسئلة متنوعة</span><span>🏆 تقدّمك محفوظ</span></div></div><div class="hero-art"><div class="sun"></div><div class="book-emoji">📖</div><div class="star s1">✦</div><div class="star s2">✧</div><div class="cloud">☁</div></div></div>
+  <form id="studentForm" class="login-card"><div class="card-icon">👋</div><h2>أهلًا يا قارئنا الصغير!</h2><p>اكتب بياناتك للبدء. ستظهر بيانات الطالب في لوحة المعلم.</p><label for="studentName">اسم الطالب</label><input id="studentName" required maxlength="60" placeholder="اكتب اسمك هنا">
+  <label for="studentClass">الصف / الشعبة</label><input id="studentClass" required maxlength="30" placeholder="مثال: الأول / أ">
+  <button class="primary-btn" type="submit">ابدأ القراءة <span>←</span></button><small>تُحفظ المتابعة على هذا الجهاز والمتصفح في هذه النسخة التجريبية.</small></form>
+</section>
+<section id="appScreen" class="app-screen hidden">
+  <div class="welcome-row"><div><span class="eyebrow">مساحة القراءة</span><h2>اختر قصتك اليوم <span>🌈</span></h2><p>اقرأ على مهل، ثم أجب عن خمسة أسئلة.</p></div><div class="progress-card"><span>إنجازك</span><strong id="progressCount">0 / 30</strong><div class="progress-track"><div id="progressBar"></div></div></div></div>
+  <div id="storyGrid" class="story-grid"></div>
+</section>
+<section id="readerScreen" class="reader-screen hidden">
+  <button id="backToStories" class="back-btn">→ العودة إلى القصص</button>
+  <div class="reader-heading"><span id="storyNumber" class="story-number">القصة 1</span><h2 id="readerTitle"></h2></div>
+  <article class="story-paper"><div class="paper-decoration">✦</div><div class="story-picture">📖</div><p id="readerBody"></p><div class="read-tip">💡 اقرأ القصة مرتين إذا احتجت إلى ذلك.</div></article>
+  <form id="quizForm" class="quiz-card"><div class="quiz-title"><div><span class="eyebrow">وقت التفكير</span><h3>هل فهمت القصة؟</h3></div><span class="question-count">٥ أسئلة</span></div><div id="questionsArea"></div><button type="submit" class="primary-btn submit-quiz">تحقّق من إجاباتي ✨</button><div id="resultBox" class="result-box hidden"></div></form>
+</section>
+<section id="teacherScreen" class="teacher-screen hidden">
+  <button id="backFromTeacher" class="back-btn">→ العودة</button>
+  <div class="teacher-head"><div><span class="eyebrow">متابعة التعلّم</span><h2>لوحة المعلم</h2><p>متابعة القصص التي قرأها الطلاب ونتائجهم.</p></div><div class="teacher-symbol">🧑‍🏫</div></div>
+  <div id="teacherLock" class="teacher-lock"><h3>دخول المعلم</h3><p>أدخل رمز لوحة المعلم لعرض بيانات الطلاب.</p><form id="teacherLogin"><input id="teacherPin" type="password" inputmode="numeric" placeholder="رمز المعلم" required><button class="primary-btn" type="submit">دخول</button></form><small>الرمز الافتراضي: 1234 — غيّره في ملف script.js.</small></div>
+  <div id="teacherDashboard" class="hidden"><div class="stats-row"><div class="stat"><span>عدد الطلاب</span><strong id="studentTotal">0</strong></div><div class="stat"><span>محاولات مكتملة</span><strong id="attemptTotal">0</strong></div><div class="stat"><span>متوسط الدرجات</span><strong id="averageScore">0%</strong></div></div>
+  <div class="table-tools"><input id="studentSearch" placeholder="ابحث باسم الطالب أو الصف"><button id="exportCsv" class="secondary-btn">تنزيل تقرير CSV</button><button id="clearData" class="danger-btn">مسح بيانات المتصفح</button></div>
+  <div class="table-wrap"><table><thead><tr><th>اسم الطالب</th><th>الصف</th><th>القصص المكتملة</th><th>آخر درجة</th><th>آخر نشاط</th><th>التفاصيل</th></tr></thead><tbody id="studentRows"></tbody></table></div><div id="studentDetails" class="details-panel hidden"></div>
+  <p class="privacy-note">تنبيه: هذه النسخة تحفظ البيانات محليًا في المتصفح نفسه، وليست قاعدة بيانات مشتركة بين أجهزة مختلفة.</p></div>
+</section>
+</main>
+<footer><span>حكاياتي الجميلة</span><span>نتعلّم كل يوم قصة جديدة 🌱</span></footer>
+<script src="script.js"></script>
+</body></html>
